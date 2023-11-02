@@ -6,5 +6,9 @@ jobs:
     steps:
       - name: get code
         uses: actions/checkout@v4
+      - name: install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
       - name: npm install
         run: npm install
