@@ -1,0 +1,8 @@
+name: Reactjs App CI pipeline
+on: workflow_dispatch
+jobs:
+  Install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: npm install
+        run: npm install
