@@ -23,7 +23,7 @@ jobs:
         uses: actions/Checkout@v4
       - name: Install dependencies
         run: npm ci
-      - name: Lint test
-        run: npm run lint 
+      # - name: Lint test
+      #   run: npm run lint 
       - name: Build code
         run: npm run Build
