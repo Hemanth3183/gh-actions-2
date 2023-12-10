@@ -1,0 +1,29 @@
+name: Artifacts & Job Outputs
+on:
+  push:
+    branches:
+      - main
+      - dev
+jobs:
+  Install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/Checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Build code
+        run: npm run Build
+      - name: Test code
+        run: npm run test
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/Checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint test
+        run: npm run lint 
+      - name: Build code
+        run: npm run Build
