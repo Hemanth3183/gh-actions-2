@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/Checkout@v4
+      - name: Install nodejs
+        uses: actions/setup-node@v3
       - name: Install dependencies
         run: npm ci
       - name: Build code
@@ -21,9 +23,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/Checkout@v4
+      - name: Install nodejs
+        uses: actions/setup-node@v3
       - name: Install dependencies
         run: npm ci
-      # - name: Lint test
-      #   run: npm run lint 
+      - name: Lint test
+        run: npm run lint 
       - name: Build code
         run: npm run Build
