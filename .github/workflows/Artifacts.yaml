@@ -10,6 +10,8 @@ on:
 jobs:
   Install:
     runs-on: ubuntu-latest
+    outputs:
+      file: $ {{ steps.publish.output.file }}
     steps:
       - name: Checkout code
         uses: actions/Checkout@v4
@@ -19,6 +21,9 @@ jobs:
         run: npm ci
       - name: Build code
         run: npm run build
+      - name: Publish JS file name
+        id: publish
+        run: find dist/assets/*.js -type f -execdir echo 'file={}' >> $GITHUB_OUTPUT ';'
       - name: Test code
         run: npm run test
       # - name: Lint test
@@ -44,6 +49,8 @@ jobs:
           name: dist-files
       - name: List dist artifact
         run: ls
+      - name: Published JS file name
+        run: echo "{{ needs.Install.outputs.file }}"
       - name: Deploy code
         run: echo "Deploying..."
   # Build:
