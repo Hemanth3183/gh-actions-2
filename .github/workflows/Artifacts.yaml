@@ -50,7 +50,7 @@ jobs:
       - name: List dist artifact
         run: ls
       - name: Published JS file name
-        run: echo "{{ needs.Install.outputs.file }}"
+        run: echo "${{ needs.Install.outputs.file }}"
       - name: Deploy code
         run: echo "Deploying..."
   # Build:
