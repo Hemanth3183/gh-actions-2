@@ -11,7 +11,7 @@ jobs:
   Install:
     runs-on: ubuntu-latest
     outputs:
-      file: $ {{ steps.publish.output.file }}
+      file: ${{ steps.publish.output.file }}
     steps:
       - name: Checkout code
         uses: actions/Checkout@v4
