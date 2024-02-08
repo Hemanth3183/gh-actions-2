@@ -48,6 +48,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Install node
         uses: actions/setup-node@v3
+      - name: Install dependencies
+        run: npm ci
       - name: Download build Artifacts
         uses: actions/download-artifact@v3
         with:
